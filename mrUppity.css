@@ -1,0 +1,149 @@
+html,body {
+    height: 100%;
+    font-family: 'FuturaBT-Bold';
+}
+
+body {
+    background-image: url(mruppity.min.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+header,main,footer {
+    width: 60%;
+}
+
+header {
+    margin: 20px 20px 0 20px;
+}
+
+main {
+    background-color: rgba(256,256,256,0.90);
+    min-height: 70%;
+}
+
+header small {
+    font-family: 'MirabelleScript';
+    font-size: 40px;
+    margin-left: 100px;
+}
+
+h1 {
+    text-shadow: 0px 0px 5px white;
+    text-transform: uppercase;
+    font-size: 100px;
+    font-family: 'FuturaBT-Bold';
+    line-height: 1em;
+    margin: 0;
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+#loadingSpinner>div {
+    width: 200px;
+    height: 200px;
+    background-color: skyblue;
+    border-radius: 200px;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+#loadingSpinner>p {
+    width: 80px;
+    margin-left: 250px;
+}
+#loadingSpinner img {
+    width: 200px;
+    height: 200px;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.parent>div {
+    cursor: pointer;
+    background-color: rgb(143, 0, 84);
+    color: white;
+}
+
+.endpoint>div {
+    border: 1px solid rgb(143, 0, 84);
+}
+
+.child-result-ratio {
+    float: right;
+    font-family: monospace;
+}
+
+.up,.down {
+    float: right;
+}
+.up {
+    color: rgb(143, 0, 84);
+}
+.up:after {
+    content: '⬆';
+    font-size: larger;
+}
+.down:after {
+    content: '⬇';
+    font-size: larger;
+}
+
+ul {
+    list-style: none;
+    padding-left: 2em;
+    clear: both;
+}
+
+li>div {
+    padding: 15px;
+    margin: 0 0 5px 0;
+}
+
+.last-updated {
+    float: right;
+    font-family: sans-serif;
+    font-size: small;
+    color: #999;
+    line-height: 1em;
+    margin-bottom: 5px;
+}
+
+footer {
+    color: #999;
+    font-family: sans-serif;
+    font-size: small;
+    margin: 20px;
+}
+
+footer>div {
+    margin-top: 10px;
+}
+
+.animate-show {
+    -webkit-transition:all linear 0.4s;
+    transition:all linear 0.4s;
+    opacity: inherit;
+}
+
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+    display:block!important;
+}
+
+.animate-show.ng-hide {
+    opacity: 0;
+}

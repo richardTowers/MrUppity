@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <title>Mr. Uppity</title>
+    <link rel=icon href=favicon.png>
+    <link rel=stylesheet href='bower_components/normalize.css/normalize.css'>
+    <link rel=stylesheet href='Styles/MyFontsWebfontsKit.css'>
+    <link rel=stylesheet href='mrUppity.css'>
+    <script src='bower_components/angular/angular.js'></script>
+    <script src='bower_components/angular-animate/angular-animate.js'></script>
+    <script src=app.js></script>
+</head>
+<body ng-app=uppityApp ng-controller=UppityCrl>
+    <script type='text/ng-template' id=tree-template>
+        <div ng-click='environment.collapsed = !environment.collapsed'>
+            {{environment.name}}
+            <span class=child-result-ratio>4 ⬆ 2 ⬇</span>
+        </div>
+        <ul class='animate-show' ng-hide='environment.collapsed'>
+            <li class=parent ng-repeat='environment in environment.children' ng-include='"tree-template"'></li>
+            <li class=endpoint ng-repeat='endpoint in environment.endpoints'>
+                <div>{{endpoint.name}}<span ng-class='endpoint.up ? "up" : "down"'>{{endpoint.result}}</span></div>
+            </li>
+        </ul>
+    </script>
+    <header>
+        <h1>Mr. Uppity</h1>
+        <small>by Richard Towers</small>
+    </header>
+    <div id=loadingSpinner ng-if=loading>
+        <div>
+            <img src=mruppity.min.svg alt='Mr. Uppity loading spinner'>
+        </div>
+        <p>Loading...</p>
+    </div>
+    <main ng-if=!loading>
+        <p class=last-updated>Last updated a few seconds ago.</p>
+        <ul ng-hide='environment.collapsed'>
+            <li class=parent ng-repeat='environment in environments' ng-include='"tree-template"'></li>
+        </ul>
+    </main>
+    <footer>
+        Mr. Uppity is an over-engineered uptime monitor.
+    </footer>
+</body>
+</html>
